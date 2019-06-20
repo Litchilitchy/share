@@ -1,0 +1,24 @@
+{
+  "language": "python",
+  "display_name": "Spark - Python (YARN Cluster Mode 1*16)",
+  "process_proxy": {
+    "class_name": "enterprise_gateway.services.processproxies.yarn.YarnClusterProcessProxy"
+  },
+  "env": {
+    "SPARK_HOME": "/opt/work/spark-2.4.0-bin-hadoop2.7",
+    "PYSPARK_PYTHON": "/opt/work/conda/bin/python3",
+    "PYTHONPATH": "/opt/work/conda/lib/python3.6/site-packages:/opt/work/spark-2.4.0-bin-hadoop2.7/python:/opt/work/spark-2.4.0-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip",
+    "SPARK_OPTS": "--num-executors 1 --executor-cores 16 --py-files /opt/work/lib/analytics-zoo-bigdl_0.7.2-spark_2.4.0-0.5.0-SNAPSHOT-python-api.zip --properties-file /opt/work/conf/spark-analytics-zoo.conf --jars /opt/work/lib/analytics-zoo-bigdl_0.7.2-spark_2.4.0-0.5.0-SNAPSHOT-jar-with-dependencies.jar --master yarn --deploy-mode cluster --name ${KERNEL_ID:-ERROR__NO__KERNEL_ID} --conf spark.yarn.submit.waitAppCompletion=false --conf spark.yarn.appMasterEnv.PYTHONUSERBASE=/home/${KERNEL_USERNAME}/.local --conf spark.yarn.appMasterEnv.PYTHONPATH=/opt/work/conda/lib/python3.6/site-packages:/opt/work/spark-2.4.0-bin-hadoop2.7/python:/opt/work/spark-2.4.0-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip --conf spark.yarn.appMasterEnv.PATH=/opt/work/conda/bin:$PATH",
+    "LAUNCH_OPTS": ""
+  },
+  "argv": [
+    "/usr/local/share/jupyter/kernels/spark_python_yarn_cluster/bin/run.sh",
+    "{connection_file}",
+    "--RemoteProcessProxy.response-address",
+    "{response_address}",
+    "--RemoteProcessProxy.port-range",
+    "{port_range}",
+    "--RemoteProcessProxy.spark-context-initialization-mode",
+    "lazy"
+  ]
+}
